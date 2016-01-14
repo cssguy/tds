@@ -12,12 +12,11 @@
 					}
 			}
 	}
-	function transport_list($page)
+	function transport_list()
 		{	global $page_site;
-			$page=$page*$page_site;
 			if($link_id=db_connect ())
 			{
-				$result=mysqli_query($link_id, "SELECT transport_city, transport_to_city, transport_type, capacity, created_at, volume FROM transports WHERE order_status=1 ORDER BY created_at DESC LIMIT $page, $page_site");
+				$result=mysqli_query($link_id, "SELECT transport_city, transport_to_city, transport_type, capacity, created_at, volume FROM transports WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
 				return $result;
 			}
 			else
@@ -27,18 +26,16 @@
 			}
 		}
 /******************************/
-	function cargos_list($page)
+	function cargos_list()
 		{
 			global $page_site;
-			$page=$page*$page_site;
 			if($link_id=db_connect ())
 			{
-				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, weight,created_at, volume FROM cargos WHERE order_status=1 ORDER BY created_at DESC LIMIT $page, $page_site");
+				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, weight,created_at, volume FROM cargos WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
 				return $result;
 			}
 			else
 			{
-				
 				return 0;
 			}
 		}

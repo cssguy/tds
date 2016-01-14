@@ -1,23 +1,16 @@
-<!--
 <?php
 //error_reporting(E_ALL);
 	define ('dir', __DIR__);
 	include_once dir."/apps/arrays.php";
 	include_once dir."/apps/db.inc";
 	include_once dir."/apps/functions.php";
-?>
--->
-<?php
 	include_once (dir."/header.php");
 ?>
-
   <div class="tds_wrapper">
-
     <div class="tds_intro">
       <div class="tds_logo">
         <img src="images/tds-logo.png" alt="Транспортно-диспетчерская служба">
       </div>
-
       <div class="tds_intro_content">
 
         <p>Данный сервис выполняет организацию грузоперевозок по всей Украине.</p>
@@ -118,23 +111,6 @@
 			?>
           </tbody>
         </table>
-			<?php
-			/*if($c_total_pages>1)
-			{
-				echo "Страницы";
-				for($i = 1; $i <= $c_total_pages; $i++)
-				{	if($i==($c_page+1))
-					{
-						$now_page=" current_page";
-					}
-					else
-					{
-						$now_page="";
-					}
-					echo "<a href=\"".$_SERVER['PHP_SELF']."?t_page=",($t_page+1),"&c_page=$i\" class=\"pages$now_page\">$i</a>";
-				}
-			}*/
-			?>
       </div>
     </div>
     <div class="tds_guide">
