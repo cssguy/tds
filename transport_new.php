@@ -1,13 +1,9 @@
-<!-- 
 <?php
 //error_reporting(E_ALL);
 	define ('dir', __DIR__);
 	include_once dir."/apps/arrays.php";
 	include_once dir."/apps/db.inc";
 	include dir."/apps/functions.php";
-?>
- -->
-<?php
 	include_once (dir."/header.php");
 ?>
 

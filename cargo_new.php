@@ -1,19 +1,13 @@
-<!-- 
 <?php
 //error_reporting(E_ALL);
 	define ('dir', __DIR__);
 	include_once dir."/apps/arrays.php";
 	include_once dir."/apps/db.inc";
 	include_once  dir."/apps/functions.php";
-?>
- -->
-<?php
 	include_once (dir."/header.php");
 ?>
 
 <p class="tds_back"><a href="<?php echo "$home_url";?>">вернуться назад</a></p>
-
-
 <div class="tds_wrapper">
 
   <h1>Добавить груз</h1>
