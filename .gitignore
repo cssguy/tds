@@ -42,3 +42,4 @@ Thumbs.db
 ######################
 mantis/
 apps/db.inc
+apps/arrays.php
