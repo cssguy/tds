@@ -1,7 +1,7 @@
 <?php
 	$home_url="http://tds.in.ua"; // url сайта
 	$page_site=5; // количество записей на страницу на сайте
-	$to_mail="winner_ua@ukr.net, kiber_ua@rambler.ru";
+	$to_mail="example@@_ua@ukr.net, kiber_ua@rambler.ru";
 	$from_mail='noreply@tds.in.ua';
 /*-транспорт, который нужно выводить в админке-*/
 	$transport_admin_array=array(
