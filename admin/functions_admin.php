@@ -233,23 +233,18 @@ function transport_new()
 				{$_POST['transport_from_date']=date('Y-m-d');}
 			else{$_POST['transport_from_date']=date('Y-m-d', strtotime($_POST['transport_from_date']));}
 			if(empty($_POST['transport_till_date']))
-				{$_POST['transport_till_date']=date('Y-m-d');}
+				{$_POST['transport_till_date'] = date('Y-m-d', strtotime("+7 days", strtotime($_POST['transport_from_date'])));}
 			else{$_POST['transport_till_date']=date('Y-m-d', strtotime($_POST['transport_till_date']));}
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
 				{
 					foreach($transport_array as $array_value)
-						{	//echo $array_value," --post-> ",$_POST[$array_value];
-							//echo '<br>';
+						{	
 							if (!empty($_POST[$array_value]))
 								{
 									$query_fields.='`'.$array_value.'`, ';
 									$temp_data=mysqli_real_escape_string($link_id, $_POST[$array_value]);
 									$query_data.="'$temp_data', ";
-									//echo $array_value,"  --!empty_post--->>> ",$_POST[$array_value];
-									//echo '<br>-------------------------<br>';
-									//echo '$temp_data='.$temp_data;
-									//echo '<br>-------------------------<br>';
 								}
 						}
 					$query_fields.='`created_at`, `updated_at`';
@@ -288,7 +283,7 @@ function transport_new()
 				{$_POST['ship_from_date']=date('Y-m-d');}
 			else{$_POST['ship_from_date']=date('Y-m-d', strtotime($_POST['ship_from_date']));}
 			if(empty($_POST['ship_till_date']))
-				{$_POST['ship_till_date']=date('Y-m-d');}
+				{$_POST['ship_till_date'] = date('Y-m-d', strtotime("+7 days", strtotime($_POST['ship_from_date'])));}
 			else{$_POST['ship_till_date']=date('Y-m-d', strtotime($_POST['ship_till_date']));}
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
