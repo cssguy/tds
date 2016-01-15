@@ -61,6 +61,5 @@
             <input name="submit" type="submit" class="send" value="Войти">
         </form>
     </div>
-    
   </body>
 </html>
