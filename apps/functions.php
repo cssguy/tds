@@ -62,7 +62,9 @@
 				{$_POST['transport_from_date']=date('Y-m-d');}
 			else{$_POST['transport_from_date']=date('Y-m-d', strtotime($_POST['transport_from_date']));}
 			if(empty($_POST['transport_till_date']))
-				{$_POST['transport_till_date']=date('Y-m-d');}
+				{	
+					$_POST['transport_till_date'] = date('Y-m-d', strtotime("+7 days", strtotime($_POST['transport_from_date'])));
+				}
 			else{$_POST['transport_till_date']=date('Y-m-d', strtotime($_POST['transport_till_date']));}
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
@@ -123,7 +125,8 @@
 				{$_POST['ship_from_date']=date('Y-m-d');}
 			else{$_POST['ship_from_date']=date('Y-m-d', strtotime($_POST['ship_from_date']));}
 			if(empty($_POST['ship_till_date']))
-				{$_POST['ship_till_date']=date('Y-m-d');}
+				{	$_POST['ship_till_date'] = date('Y-m-d', strtotime("+7 days", strtotime($_POST['ship_from_date'])));
+				}
 			else{$_POST['ship_till_date']=date('Y-m-d', strtotime($_POST['ship_till_date']));}
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
