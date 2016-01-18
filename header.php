@@ -14,7 +14,6 @@
   <link href="<?php echo "$home_url";?>/stylesheets/datepicker.min.css" rel="stylesheet" type="text/css">
   <script src="<?php echo "$home_url";?>/javascripts/datepicker.min.js"></script>
   <script src="<?php echo "$home_url";?>/javascripts/datepicker_setting.js"></script>
-  <script type="text/javascript" src="<?php echo "$home_url";?>/javascripts/home.js"></script>
   <script type="text/javascript" src="<?php echo "$home_url";?>/javascripts/modal.js"></script>
   <script type="text/javascript" src="<?php echo "$home_url";?>/javascripts/jquery.validate.min.js"></script>
   <script type="text/javascript" src="<?php echo "$home_url";?>/javascripts/new.js"></script>
