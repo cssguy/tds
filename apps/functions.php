@@ -31,7 +31,7 @@
 			global $page_site;
 			if($link_id=db_connect ())
 			{
-				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, weight,created_at, volume FROM cargos WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
+				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, description, weight,created_at, volume FROM cargos WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
 				return $result;
 			}
 			else

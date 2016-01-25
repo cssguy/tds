@@ -41,6 +41,8 @@
 										echo htmlspecialchars($query_data['ship_to_city'], ENT_QUOTES, "UTF-8");
 										echo "</td>";
 										echo"<td>",$query_data['transport_type'],"</td><td>";
+										echo htmlspecialchars($query_data['description'], ENT_QUOTES, "UTF-8");
+										echo "</td><td>";
 										echo htmlspecialchars($query_data['company_name'], ENT_QUOTES, "UTF-8");
 										echo "</td><td>",$query_data['phone'],"</td><td>";
 											if ($query_data['order_status'])

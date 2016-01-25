@@ -85,38 +85,42 @@
                 <th>Дата</th>
                 <th>Пункт загрузки — Пункт выгрузки</th>
                 <th colspan="2">Тех. данные</th>
+								<th>Описание</th>
               </tr>
           </thead>
           <tbody>
-  		<?php
-  		
-  		if ($result=cargos_list())
-  		{
-  			if(mysqli_num_rows($result))
-  			{
-  				while($query_data=mysqli_fetch_array($result)){
-  				echo "<tr><td>";
-  				echo "<p>",date("d/m", strtotime($query_data["created_at"])),"</p>";
-  				echo "<p>",date("H:i", strtotime($query_data["created_at"])),"</p>";
-  				echo "</td><td>";
-  				echo "<p>",$query_data["ship_city"]," <span>&mdash;</span> ",$query_data["ship_to_city"],"</p>";
-  				echo "<p>",$query_data["transport_type"],"</p>";
-  				echo "</td><td><p>",$query_data["weight"],"т.</p>";
-  				echo "<p>&nbsp;</p></td><td><p>";
-  				echo $query_data["volume"],"м³";
-  				echo "</p><p>&nbsp;</p></td></tr>";
-  				}
-  			}
-  			else
-  			{
-  				echo "<tr><td colspan=\"3\">На данный момент заявок нет.</td></tr>";
-  			}
-  		}
-  		else
-  		{
-  			echo "<tr><td colspan=\"3\">Ошибка подключения к базе данных. Попробуйте позже.</td></tr>";
-  		}
-  		?>
+			<?php
+			
+			if ($result=cargos_list())
+			{
+				if(mysqli_num_rows($result))
+				{
+					while($query_data=mysqli_fetch_array($result)){
+					echo "<tr><td>";
+					echo "<p>",date("d/m", strtotime($query_data["created_at"])),"</p>";
+					echo "<p>",date("H:i", strtotime($query_data["created_at"])),"</p>";
+					echo "</td><td>";
+					echo "<p>",$query_data["ship_city"]," <span>&mdash;</span> ",$query_data["ship_to_city"],"</p>";
+					echo "<p>",$query_data["transport_type"],"</p>";
+					echo "</td><td><p>",$query_data["weight"],"т.</p>";
+					echo "<p>&nbsp;</p></td><td><p>";
+					echo $query_data["volume"],"м³";
+					echo "</p><p>&nbsp;</p>";
+					echo "<td><p>";
+					echo $query_data['description'];
+					echo "</p></td></tr>";
+					}
+				}
+				else
+				{
+					echo "<tr><td colspan=\"3\">На данный момент заявок нет.</td></tr>";
+				}
+			}
+			else
+			{
+				echo "<tr><td colspan=\"3\">Ошибка подключения к базе данных. Попробуйте позже.</td></tr>";
+			}
+			?>
           </tbody>
         </table>
       </div>
