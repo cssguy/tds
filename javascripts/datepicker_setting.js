@@ -1,6 +1,7 @@
 $(document).ready(function() {
+
 var $t_start = $('#transport_from_date'),
-	$t_end = $('#transport_till_date');
+		$t_end = $('#transport_till_date');
 
 	$t_start.datepicker({
 		autoClose:true,

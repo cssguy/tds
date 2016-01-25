@@ -24,6 +24,10 @@
     padding-top: 0;
   }
 
+  .tds_back {
+    margin: 25px 0;
+  }
+
   .tds_intro {
     width: 100%;
     float: none;
@@ -105,6 +109,20 @@
   footer p:last-of-type {
     width: 100%;
     text-align: center;
+  }
+
+  form.dp_form div label {
+    width: 100%;
+  }
+
+  form.dp_form div input,
+  form.dp_form div input[type="name"],
+  form.dp_form div input[type="telephone"],
+  form.dp_form select,
+  form.dp_form textarea {
+    float: none; 
+    width: 100%;
+    box-sizing: border-box;   
   }
 
 }

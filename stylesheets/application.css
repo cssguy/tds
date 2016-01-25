@@ -355,7 +355,7 @@ footer i.fa {
 }
 
 form.dp_form {
-  width: 550px;
+  max-width: 550px;
   margin: 45px auto 0;
   font-size: 16px;
 }
