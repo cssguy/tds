@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   font-family: "Trebuchet MS", Tahoma, sans-serif;
   font-size: 16px;
+  height: 100%;
 }
 
 .clearfix {
@@ -38,6 +39,11 @@ html, body {
   font-weight: bold;
   display: inline-block;
   vertical-align: middle;
+}
+
+.tds_header h1 a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .tds_header p {
@@ -77,10 +83,24 @@ html, body {
 }
 
 .tds_wrapper {
-  margin: 40px 20px 20px;
+  margin: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
 }
 .tds_wrapper h1 {
   text-align: center;
+}
+
+.tds_content {
+  display: table-row;
+  width: 100%;
+  height: 100%;
+}
+
+.tds_content__wrapper {
+  padding: 45px 20px;
 }
 
 .tds_intro {
@@ -120,6 +140,7 @@ html, body {
   margin-bottom: 10px;
 }
 .tds_actions a[href*="transport"] {
+  float: left;
   background: #fff;
   background: -moz-linear-gradient(top, #afd145 0%, #5d9123 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #afd145), color-stop(100%, #5d9123));
@@ -130,6 +151,7 @@ html, body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afd145', endColorstr='#5d9123',GradientType=0 );
 }
 .tds_actions a[href*="cargo"] {
+  float: right;
   background: #139adb;
   background: -moz-linear-gradient(top, #139adb 0%, #00509f 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #139adb), color-stop(100%, #00509f));

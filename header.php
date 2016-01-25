@@ -23,8 +23,10 @@
 </head>
 <body>
 
+<div class="tds_wrapper"> <!-- start wrapper layout -->
+
   <div class="tds_header">
-    <h1>Транспортно-диспетчерская служба</h1>
+    <h1><a href="<?php echo "$home_url";?>">Транспортно-диспетчерская служба</a></h1>
 	
     <p>
       <span>(050) 574-15-63</span>
