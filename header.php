@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="Услуги диспетчера по перевозке грузов">
   <link rel="stylesheet" type="text/css" href="<?php echo "$home_url";?>/stylesheets/application.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo "$home_url";?>/stylesheets/responsive.css">
   <link rel="stylesheet" type="text/css" href="<?php echo "$home_url";?>/stylesheets/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="<?php echo "$home_url";?>/stylesheets/privacy_policy.css">
-  <link href="<?php echo "$home_url";?>/stylesheets/application.css" media="all" rel="stylesheet">
+
   <script src="<?php echo "$home_url";?>/javascripts/jquery.js"></script>
   <link href="<?php echo "$home_url";?>/stylesheets/datepicker.min.css" rel="stylesheet" type="text/css">
   <script src="<?php echo "$home_url";?>/javascripts/datepicker.min.js"></script>

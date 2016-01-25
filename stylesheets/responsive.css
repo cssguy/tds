@@ -1,0 +1,41 @@
+@media all and (max-width: 1035px) and (min-width: 320px) {
+
+  .tds_intro {
+    width: 100%;
+    float: none;
+    margin: 20px 0;
+  }
+
+  .tds_intro:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .tds_logo {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+
+  .tds_intro_content {
+    max-width: inherit;
+  }
+
+  .tds_actions {
+    width: 100%;
+  }
+
+  .tds_guide {
+    width: 100%;
+    float: none;
+  }
+
+  .tds_guide .step {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    /*display: inline-block;*/
+    vertical-align: top;
+  }
+
+}

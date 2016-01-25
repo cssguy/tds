@@ -8,23 +8,28 @@ html, body {
 .clearfix {
   clear: both;
 }
+
 .clearfix:after, .clearfix:before {
   content: "";
   clear: both;
   display: table;
 }
 
+/* Header */
+
 .tds_header {
   background: rgba(14, 97, 89, 0.85);
   height: 60px;
   color: #fff;
 }
+
 .tds_header:before {
   content: "";
   height: 100%;
   display: inline-block;
   vertical-align: middle;
 }
+
 .tds_header h1 {
   margin: 0 0 0 15px;
   padding: 0;
@@ -34,18 +39,23 @@ html, body {
   display: inline-block;
   vertical-align: middle;
 }
+
 .tds_header p {
   display: inline-block;
   float: right;
   margin: 15px 20px 0 0;
   font-size: 1.5em;
 }
+
 .tds_header p span {
   display: inline-block;
 }
+
 .tds_header p span:last-of-type {
   margin-left: 20px;
 }
+
+/* Home page - body */
 
 .tds_back {
   margin: 25px;
@@ -83,6 +93,7 @@ html, body {
   max-height: 230px;
   margin-bottom: 60px;
 }
+
 .tds_logo img {
   max-width: 100%;
 }
@@ -259,6 +270,8 @@ html, body {
   width: 50px;
   text-align: center;
 }
+
+/* Footer */
 
 footer {
   background-color: #e5e5e5;
