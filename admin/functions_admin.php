@@ -67,7 +67,7 @@
 			$page=$page*$page_admin;			
 			if($link_id=db_connect ())
 		{
-				$result=mysqli_query($link_id, "SELECT id, ship_from_date,ship_till_date, ship_city, ship_to_city, transport_type, company_name, phone, order_status FROM cargos $my_order LIMIT $page, $page_admin");
+				$result=mysqli_query($link_id, "SELECT id, ship_from_date,ship_till_date, ship_city, ship_to_city,  description, transport_type, company_name, phone, order_status FROM cargos $my_order LIMIT $page, $page_admin");
 				return $result;
 			}
 			else
@@ -167,6 +167,7 @@
 									'ship_till_date',
 									'ship_city',
 									'ship_to_city',
+									'description',
 									'transport_type',
 									'weight',
 									'volume',
@@ -187,9 +188,12 @@
 				{$cargo_add['ship_from_date']=date('Y-m-d');}
 				else{$cargo_add['ship_from_date']=date('Y-m-d', strtotime($cargo_add['ship_from_date']));}
 				$cargo_add['ship_till_date']=date('Y-m-d', strtotime($cargo_add['ship_till_date']));
+				
 				$result_querry=mysqli_query($link_id, "UPDATE  `cargos` SET 
 						`ship_from_date`='$cargo_add[ship_from_date]', `ship_till_date`='$cargo_add[ship_till_date]', `ship_city`='$cargo_add[ship_city]', 
-						`ship_to_city`='$cargo_add[ship_to_city]',    `transport_type`='$cargo_add[transport_type]', 
+						`ship_to_city`='$cargo_add[ship_to_city]', 
+						`description`='$cargo_add[description]',
+						`transport_type`='$cargo_add[transport_type]', 
 						`weight`='$cargo_add[weight]', 
 						`volume`='$cargo_add[volume]', 
 						`payment_type`='$cargo_add[payment_type]', `payment_amount`='$cargo_add[payment_amount]',  

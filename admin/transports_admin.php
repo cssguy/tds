@@ -10,7 +10,6 @@
 	<?php
 						foreach($transport_admin_array as $key => $value)
 						{	
-							
 							if($transport_sort_admin_array[$key]==true){
 								echo "<th><a href=\"".$_SERVER['PHP_SELF']."?page=",($page+1),"&view=$view_list&order_by=$key&";
 								if(isset($_GET['order_by'])&&($_GET['order_by']==$key)&&($_GET['up_down']=='asc'))

@@ -77,6 +77,7 @@
                 <th>Дата</th>
                 <th><span>Пункт загрузки</span> <span>Пункт выгрузки</span></th>
                 <th colspan="2">Тех. данные</th>
+								<th>Описание</th>
               </tr>
           </thead>
           <tbody>
@@ -96,7 +97,10 @@
 					echo "</td><td><p>",$query_data["weight"],"т.</p>";
 					echo "<p>&nbsp;</p></td><td><p>";
 					echo $query_data["volume"],"м³";
-					echo "</p><p>&nbsp;</p></td></tr>";
+					echo "</p><p>&nbsp;</p>";
+					echo "<td><p>";
+					echo $query_data['description'];
+					echo "</p></td></tr>";
 					}
 				}
 				else

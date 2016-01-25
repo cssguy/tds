@@ -48,6 +48,8 @@
     <div><label for="ship_city"><abbr title="required">*</abbr> Город нахождения</label><input id="ship_city"  name="ship_city" type="text" value="<?php echo $query_data['ship_city']; ?>"></div>
 	
     <div><label for="ship_to_city">Город назначения</label><input  id="ship_to_city" name="ship_to_city" type="text" value="<?php echo $query_data['ship_to_city']; ?>"></div>
+		
+		<div><label for="cargo_description">Описание груза</label><textarea id="cargo_description" name="description" ><?php echo $query_data['description']; ?></textarea></div>
 	
     <div><label for="transport_type">Тип транспорта</label><select id="transport_type" name="transport_type" >
 	<?php
