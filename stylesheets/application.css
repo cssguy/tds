@@ -22,6 +22,8 @@ html, body {
   background: rgba(14, 97, 89, 0.85);
   height: 60px;
   color: #fff;
+  display: inline-block;
+  width: 100%;
 }
 
 .tds_header:before {
@@ -109,13 +111,30 @@ html, body {
 }
 
 .tds_logo {
-  max-width: 305px;
-  max-height: 230px;
   margin-bottom: 60px;
+  background: url("../images/tds-logo.png") no-repeat center center;
+  background-size: 305px 230px;
+  width: 305px;
+  height: 230px;
+  max-width: 100%;
 }
 
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    .tds_logo {
+      background: url("../images/tds-logo@2x.png") no-repeat center center;
+      background-size: 305px 230px;
+    }
+  }
+
 .tds_logo img {
-  max-width: 100%;
+  /*max-width: 100%;*/
+  display: none;
 }
 
 .tds_intro_content {
@@ -141,6 +160,7 @@ html, body {
 }
 .tds_actions a[href*="transport"] {
   float: left;
+  margin-right: 10px;
   background: #fff;
   background: -moz-linear-gradient(top, #afd145 0%, #5d9123 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #afd145), color-stop(100%, #5d9123));
@@ -152,6 +172,7 @@ html, body {
 }
 .tds_actions a[href*="cargo"] {
   float: right;
+  margin-left: 10px;
   background: #139adb;
   background: -moz-linear-gradient(top, #139adb 0%, #00509f 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #139adb), color-stop(100%, #00509f));
@@ -526,7 +547,7 @@ label.error {
   background: #fff;
 }
 .alert-success button.close {
-  background: url("/images/x.png") no-repeat !important;
+  background: url("../images/x.png") no-repeat !important;
   width: 25px;
   height: 29px;
   display: inline;
