@@ -69,6 +69,12 @@ html, body {
   text-decoration: none;
 }
 
+.appleLinks a:before {
+  content: url("../images/phone.png") no-repeat;
+  margin-right: 5px;
+  color: #fff;
+}
+
 /* Home page - body */
 
 .tds_back {
