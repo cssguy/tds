@@ -1,3 +1,7 @@
+    </div> <!-- end .tds_content__wrapper --> 
+
+  </div> <!-- end .tds_content -->
+
   <footer>
 
     <div class="privacy_policy">

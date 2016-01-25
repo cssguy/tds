@@ -33,3 +33,8 @@
       <span>(067) 613-37-92</span>
     </p>
   </div>
+
+
+  <div class="tds_content"> <!-- start .tds_content -->
+
+    <div class="tds_content__wrapper"> <!-- start .tds_content__wrapper --> 

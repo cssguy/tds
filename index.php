@@ -7,10 +7,6 @@
 	include_once (dir."/header.php");
 ?>
 
-<div class="tds_content">
-
-  <div class="tds_content__wrapper">
-
     <div class="tds_intro">
 
       <div class="tds_logo">
@@ -46,7 +42,7 @@
           <thead>
             <tr>
               <th>Дата</th>
-              <th><span>Пункт загрузки</span> <span>Пункт выгрузки</span></th>
+              <th>Пункт загрузки — Пункт выгрузки</th>
               <th colspan="2">Тех. данные</th>
             </tr>
           </thead>
@@ -87,7 +83,7 @@
           <thead>
               <tr>
                 <th>Дата</th>
-                <th><span>Пункт загрузки</span> <span>Пункт выгрузки</span></th>
+                <th>Пункт загрузки — Пункт выгрузки</th>
                 <th colspan="2">Тех. данные</th>
               </tr>
           </thead>
@@ -153,10 +149,6 @@
     </div>
 
     <div class="clearfix"></div>
-
-  </div>
-
-</div>
   
 
 <?php
