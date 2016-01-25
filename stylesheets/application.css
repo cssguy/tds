@@ -64,6 +64,11 @@ html, body {
   margin-left: 20px;
 }
 
+.appleLinks a {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* Home page - body */
 
 .tds_back {

@@ -29,8 +29,8 @@
     <h1><a href="<?php echo "$home_url";?>">Транспортно-диспетчерская служба</a></h1>
 	
     <p>
-      <span>(050) 574-15-63</span>
-      <span>(067) 613-37-92</span>
+      <span class="appleLinks">(050) 574-15-63</span>
+      <span class="appleLinks">(067) 613-37-92</span>
     </p>
   </div>
 
