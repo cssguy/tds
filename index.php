@@ -89,7 +89,6 @@
               </tr>
           </thead>
           <tbody>
-<<<<<<< HEAD
 			<?php
 			
 			if ($result=cargos_list())
