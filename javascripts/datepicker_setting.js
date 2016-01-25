@@ -5,7 +5,6 @@ var $t_start = $('#transport_from_date'),
 
 	$t_start.datepicker({
 		autoClose:true,
-		position: "right top",
 		dateFormat: 'dd-mm-yyyy',
 		onSelect: function (fd, date) {
 			$t_end.data('datepicker')
@@ -15,7 +14,6 @@ var $t_start = $('#transport_from_date'),
 
 	$t_end.datepicker({
 		autoClose:true,
-		position: "right top",
 		dateFormat: 'dd-mm-yyyy',
 		onSelect: function (fd, date) {
 			$t_start.data('datepicker')
@@ -28,7 +26,6 @@ var $c_start = $('#ship_from_date'),
 
 	$c_start.datepicker({
 		autoClose:true,
-		position: "right top",
 		dateFormat: 'dd-mm-yyyy',
 		onSelect: function (fd, date) {
 			$c_end.data('datepicker')
@@ -38,7 +35,6 @@ var $c_start = $('#ship_from_date'),
 
 	$c_end.datepicker({
 		autoClose:true,
-		position: "right top",
 		dateFormat: 'dd-mm-yyyy',
 		onSelect: function (fd, date) {
 			$c_start.data('datepicker')
