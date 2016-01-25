@@ -1,0 +1,137 @@
+@media all and (max-width: 1260px) {
+
+  .tds_actions a[href*="transport"],
+  .tds_actions a[href*="cargo"] {
+    margin: 0 0 10px 0;
+    float: none;
+    display: inline-block;
+  }
+
+}
+
+@media all and (max-width: 1035px) {
+
+  .tds_header h1,
+  .tds_header p {
+    font-size: 2.7vw;
+  }
+
+  .tds_header p {
+    margin: 19px 20px 0 0;
+  }
+
+  .tds_content__wrapper {
+    padding-top: 0;
+  }
+
+  .tds_back {
+    margin: 25px 0;
+  }
+
+  .tds_intro {
+    width: 100%;
+    float: none;
+    margin: 20px 0;
+  }
+
+  .tds_intro:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .tds_logo {
+    vertical-align: top;
+    float: none;
+    margin: 0;
+    display: table-cell;
+    width: 50%;
+    padding-right: 20px;
+  }
+
+  .tds_intro_content {
+    vertical-align: top;
+    max-width: inherit;
+    display: table-cell;
+    width: 50%;
+  }
+
+  .tds_actions {
+    width: 100%;
+  }
+
+  .tds_guide {
+    width: 100%;
+    float: none;
+  }
+
+  .tds_guide .step {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+  }
+
+}
+
+@media all and (max-width: 680px) {
+  
+  .tds_logo {
+    max-width: inherit;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tds_intro_content {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .tds_header {
+    height: auto;
+  }
+  
+  .tds_header h1,
+  .tds_header p {
+    font-size: 2.94vw;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .tds_header p {
+    margin: 10px 0 15px;
+  }
+
+  footer .privacy_policy,
+  footer p:last-of-type {
+    width: 100%;
+    text-align: center;
+  }
+
+  form.dp_form div label {
+    width: 100%;
+  }
+
+  form.dp_form div input,
+  form.dp_form div input[type="name"],
+  form.dp_form div input[type="telephone"],
+  form.dp_form select,
+  form.dp_form textarea {
+    float: none; 
+    width: 100%;
+    box-sizing: border-box;   
+  }
+
+}
+
+@media all and (max-width: 480px) {
+  
+  .tds_header h1,
+  .tds_header p {
+    font-size: 5vw;
+  }
+
+}

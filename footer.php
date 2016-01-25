@@ -1,3 +1,7 @@
+    </div> <!-- end .tds_content__wrapper --> 
+
+  </div> <!-- end .tds_content -->
+
   <footer>
 
     <div class="privacy_policy">
@@ -21,6 +25,8 @@
     <div class="clearfix"></div>
 
   </footer>
+
+</div>  <!-- end wrapper layout -->
 
 <div id="agreement" class="modalDialog">
     <div> <a href="#agreement_accepted" title="Close" class="close">X</a>

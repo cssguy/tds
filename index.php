@@ -6,11 +6,13 @@
 	include_once dir."/apps/functions.php";
 	include_once (dir."/header.php");
 ?>
-  <div class="tds_wrapper">
+
     <div class="tds_intro">
+
       <div class="tds_logo">
         <img src="images/tds-logo.png" alt="Транспортно-диспетчерская служба">
       </div>
+
       <div class="tds_intro_content">
 
         <p>Данный сервис выполняет организацию грузоперевозок по всей Украине.</p>
@@ -24,50 +26,56 @@
         (067) 613-37-92<br/>
         или отправьте запрос на email: <a href="mailto:support@tds.in.ua">support@tds.in.ua</a></p>
       </div>
+
     </div>
+
     <div class="tds_actions">
+
       <a href="transport_new.php">Добавить транспорт</a>
       <a href="cargo_new.php">Добавить груз</a>
+
+      <div class="clearfix"></div>
+      
       <div class="tds_data">
         <h4>Предложения свободного транспорта по Украине</h4>
         <table>
           <thead>
             <tr>
               <th>Дата</th>
-              <th><span>Пункт загрузки</span> <span>Пункт выгрузки</span></th>
+              <th>Пункт загрузки — Пункт выгрузки</th>
               <th colspan="2">Тех. данные</th>
             </tr>
           </thead>
           <tbody>	
-		  <?php
+  	  <?php
 
-			if($result=transport_list())
-			{
-				if(mysqli_num_rows($result))
-				{	
-					while($query_data=mysqli_fetch_array($result)){
-					echo "<tr><td>";
-					echo "<p>",date("d/m", strtotime($query_data["created_at"])),"</p>";
-					echo "<p>",date("H:i", strtotime($query_data["created_at"])),"</p>";
-					echo "</td><td>";
-					echo "<p>",$query_data["transport_city"]," <span>&mdash;</span> ",$query_data["transport_to_city"],"</p>";
-					echo "<p>",$query_data["transport_type"],"</p>";
-					echo "</td><td><p>",$query_data["capacity"],"т.</p>";
-					echo "<p>&nbsp;</p></td><td><p>";
-					echo $query_data["volume"],"м³";
-					echo "</p><p>&nbsp;</p></td></tr>";
-					}
-				}
-				else
-					{
-						echo "<tr><td colspan=\"3\">Нет свободного транспорта.</td></tr>";
-					}
-			}
-			else
-				{
-					echo "<tr><td colspan=\"3\">Ошибка подключения к базе данных. Попробуйте позже.</td></tr>";
-				}
-			?> 
+  		if($result=transport_list())
+  		{
+  			if(mysqli_num_rows($result))
+  			{	
+  				while($query_data=mysqli_fetch_array($result)){
+  				echo "<tr><td>";
+  				echo "<p>",date("d/m", strtotime($query_data["created_at"])),"</p>";
+  				echo "<p>",date("H:i", strtotime($query_data["created_at"])),"</p>";
+  				echo "</td><td>";
+  				echo "<p>",$query_data["transport_city"]," <span>&mdash;</span> ",$query_data["transport_to_city"],"</p>";
+  				echo "<p>",$query_data["transport_type"],"</p>";
+  				echo "</td><td><p>",$query_data["capacity"],"т.</p>";
+  				echo "<p>&nbsp;</p></td><td><p>";
+  				echo $query_data["volume"],"м³";
+  				echo "</p><p>&nbsp;</p></td></tr>";
+  				}
+  			}
+  			else
+  				{
+  					echo "<tr><td colspan=\"3\">Нет свободного транспорта.</td></tr>";
+  				}
+  		}
+  		else
+  			{
+  				echo "<tr><td colspan=\"3\">Ошибка подключения к базе данных. Попробуйте позже.</td></tr>";
+  			}
+  		?> 
           </tbody>
         </table>
         <h4>Заявки на грузоперевозки по Украине</h4>
@@ -75,12 +83,13 @@
           <thead>
               <tr>
                 <th>Дата</th>
-                <th><span>Пункт загрузки</span> <span>Пункт выгрузки</span></th>
+                <th>Пункт загрузки — Пункт выгрузки</th>
                 <th colspan="2">Тех. данные</th>
 								<th>Описание</th>
               </tr>
           </thead>
           <tbody>
+<<<<<<< HEAD
 			<?php
 			
 			if ($result=cargos_list())
@@ -116,8 +125,11 @@
           </tbody>
         </table>
       </div>
+
     </div>
+
     <div class="tds_guide">
+
       <div class="step step1">
         <h4>Шаг 1</h4>
         <p>У вас есть товар, который нужно доставить или свободный транспорт?</p>
@@ -138,9 +150,12 @@
         <p>Получите подтверждение <br/>по телефону</p>
         <div><i class="fa fa-check-square-o"></i></div>
       </div>
+
     </div>
+
     <div class="clearfix"></div>
-  </div>
+  
+
 <?php
 	include_once (dir."/footer.php");
 ?>
