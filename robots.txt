@@ -1,0 +1,10 @@
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /mantis/
+Host: http://tds.in.ua
+
+User-agent: *
+Disallow: /admin/
+Disallow: /mantis/
+
+Sitemap: http://tds.in.ua/sitemap.xml
