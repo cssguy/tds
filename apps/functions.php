@@ -12,12 +12,14 @@
 					}
 			}
 	}
+/* отображение транспорта на главной */
 	function transport_list()
 		{	global $page_site;
 			if($link_id=db_connect ())
 			{
-				$result=mysqli_query($link_id, "SELECT transport_city, transport_to_city, transport_type, capacity, created_at, volume FROM transports WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
+				$result=mysqli_query($link_id, "SELECT transport_city, transport_to_city, transport_type, capacity, created_at, volume FROM transports WHERE DATE(transport_till_date) >= DATE(NOW()) AND  `order_status`=1 ORDER BY transport_till_date DESC LIMIT $page_site");
 				return $result;
+				
 			}
 			else
 			{
@@ -31,7 +33,7 @@
 			global $page_site;
 			if($link_id=db_connect ())
 			{
-				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, description, weight,created_at, volume FROM cargos WHERE order_status=1 ORDER BY created_at DESC LIMIT $page_site");
+				$result=mysqli_query($link_id, "SELECT ship_city, ship_to_city, transport_type, description, weight,created_at, volume FROM cargos WHERE DATE(ship_till_date) >= DATE(NOW()) AND `order_status`=1 ORDER BY ship_till_date DESC LIMIT $page_site");
 				return $result;
 			}
 			else
