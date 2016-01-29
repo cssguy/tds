@@ -153,7 +153,6 @@
     </div>
 
     <div class="clearfix"></div>
-  
 
 <?php
 	include_once (dir."/footer.php");

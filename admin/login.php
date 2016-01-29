@@ -9,17 +9,19 @@
 			if($link_id=db_connect ())
 			{	$email=mysqli_escape_string($link_id, $_POST['login']);
 				$encrypted_password=md5(mysqli_escape_string($link_id, $_POST['pass']));
-				$result=mysqli_query($link_id, "SELECT `admin_id`, `encrypted_password` FROM admin_users WHERE  email='$email'");
+				$result=mysqli_query($link_id, "SELECT `email`, `admin_id`, `encrypted_password` FROM admin_users");
 			if($result)
-				{	$query_data=mysqli_fetch_array($result);
-					if(($query_data['encrypted_password'])==$encrypted_password)
+				{	while($query_data=mysqli_fetch_array($result))
+					{
+					if(($query_data['encrypted_password'])==$encrypted_password && ($query_data['email'])==$email)
 						{
 							$_SESSION['admin']=$query_data['admin_id'];
 						}
 					else	
 						{
-							$message="Неверное имя пользователя или пароль";
+							$message="Неверный логин или пароль";
 						}
+					}
 				}
 			else{
 				$message="Пользователь не найден";
