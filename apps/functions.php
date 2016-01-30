@@ -49,7 +49,7 @@
 			$query_data='';
 			$headers= "MIME-Version: 1.0\r\n";
 			$headers .= "Content-type: text/html; charset=utf-8\r\n";
-			$headers .= "From: TDS <$from_mail> \r\n";
+			$headers .= "From: $from_mail\r\n";
 			$message='<html>
 									<head>
 										<title>Поступила новая заявка свободного транспорта.</title>
@@ -60,14 +60,14 @@
 														'transport_city'=>'город нахождения ',
 														'transport_to_city'=>'город назначения ',
 														'transport_type'=>'тип транспорта',
-									'capacity'=>'грузоподъемность',
-									'volume'=>'объем груза',
-									'payment_type'=>'тип оплаты',
-									'payment_amount'=>'сумма оплаты',
-									'phone'=>'номер телефона',
-									'email'=>'email',
-									'company_name'=>'компания или ФИО',
-									'company_type'=>'специфика деятельности');
+														'capacity'=>'грузоподъемность, т',
+														'volume'=>'объем груза, м³',
+														'payment_type'=>'тип оплаты',
+														'payment_amount'=>'сумма оплаты',
+														'phone'=>'номер телефона',
+														'email'=>'email',
+														'company_name'=>'компания или ФИО',
+														'company_type'=>'специфика деятельности');
 			if(empty($_POST['transport_from_date']))
 				{$_POST['transport_from_date']=date('Y-m-d');}
 			else{$_POST['transport_from_date']=date('Y-m-d', strtotime($_POST['transport_from_date']));}
@@ -109,22 +109,31 @@
 	function cargo_new()
 		{	global $from_mail;
 			global $to_mail;
+			global $home_url;
 			$query_fields='';
 			$query_data='';
-			$cargo_array=array( 'ship_from_date', 
-                                'ship_till_date', 
-                                'ship_city', 
-                                'ship_to_city', 
-                                'description', 
-                                'transport_type', 
-                                'weight', 
-                                'volume', 
-                                'payment_type', 
-                                'payment_amount', 
-                                'phone', 
-                                'email', 
-                                'company_name', 
-                                'company_type');
+			$headers= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-type: text/html; charset=utf-8\r\n";
+			$headers .= "From: $from_mail\r\n";
+			$message='<html>
+									<head>
+										<title>Поступила новая заявка по перевозке груза.</title>
+									</head>
+									<body><b>Поступила новая заявка по перевозке груза.</b><br><br>';
+			$cargo_array=array( 'ship_from_date'=>'загрузка с', 
+                          'ship_till_date'=>'загрузка по', 
+                          'ship_city'=>'город отправления', 
+                          'ship_to_city'=>'город назначения', 
+                          'description'=>'описание груза', 
+                          'transport_type'=>'какой нужен транспорт', 
+                          'weight'=>'вес груза, т', 
+                          'volume'=>'объём груза, м³', 
+                          'payment_type'=>'вид платежа', 
+                          'payment_amount'=>'сумма оплаты', 
+                          'phone'=>'номер телефона', 
+                          'email'=>'email', 
+                          'company_name'=>'имя компании или ФИО', 
+                          'company_type'=>'Специфика деятельности');
 			if(empty($_POST['ship_from_date']))
 				{$_POST['ship_from_date']=date('Y-m-d');}
 			else{$_POST['ship_from_date']=date('Y-m-d', strtotime($_POST['ship_from_date']));}
@@ -135,20 +144,24 @@
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
 				{
-					foreach($cargo_array as $array_value)
+					foreach($cargo_array as $key=>$array_value)
 						{
-							if (!empty($_POST[$array_value]))
+							if (!empty($_POST[$key]))
 								{
-									$query_fields.='`'.$array_value.'`, ';
-									$temp_data=mysqli_real_escape_string($link_id, $_POST[$array_value]);
+									$query_fields.='`'.$key.'`, ';
+									$temp_data=mysqli_real_escape_string($link_id, $_POST[$key]);
 									$query_data.="'$temp_data', ";
+									$message.="<b>$array_value</b> : $temp_data<br>\r\n";
 								}
 						}
 					$query_fields.='`created_at`, `updated_at`';
 					$query_data.="'$created', '$created'";
+					$message.="<br><b>Дата создания заявки</b> : $created<br><b><a href=\"$home_url/admin/index.php?view=cargos\">Перейти на сайт.</a></b><br></body></html>";
 					$querry_result=mysqli_query($link_id, "INSERT INTO `cargos` ($query_fields) VALUES ($query_data)");
-					mail($to_mail, "Поступила новая заявка на перевозку груза", "Поступила новая заявка на перевозку груза.", "From:$from_mail");
-					return $querry_result;
+					if($querry_result){
+						mail($to_mail, "Поступила новая заявка на перевозку груза.", $message, $headers);
+						return $querry_result;
+					}
 				}
 				else
 				{
