@@ -17,7 +17,7 @@
 <header>
 <a href="index.php" class="logo">TDS</a>
 <ul class="nav">
-<li><a href="index.php?view=admin_users">Пользователи</a></li>
+<li><a href="index.php?view=drivers">Пользователи</a></li>
 <li><a href="index.php?view=transports">Транспорт</a></li>
 <li><a href="index.php?view=cargos">Груз</a></li>
 		<li><a href="transport_new.php">Добавить транспорт</a></li>
