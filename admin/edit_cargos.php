@@ -25,7 +25,7 @@
 			else
 			{
 				echo "<div class=\"alert-success\">
-					<p>Не удалось изменить запись с id=",$id,". Попробуйте позже.</p>
+					<p>Не удалось изменить запись с id=",$_POST['id'],". Попробуйте позже.</p>
 				<button type=\"button\" class=\"ok\" data-dismiss=\"alert\" aria-hidden=\"true\">OK</button>
 				</div>";
 			}

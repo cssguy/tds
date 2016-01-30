@@ -83,12 +83,15 @@ $query_string='';
 		}
 	?>
 	<!-- welcome -->
-	<?php if(empty($_GET['view']))
+	<?php 
+		if(empty($_GET['view']))
 			{echo "Добро пожаловать в админ панель, выберите необходимый пункт меню.";}	
 		elseif($_GET['view']=='transports')
 			{include_once dir."/transports_admin.php";}
 		elseif($_GET['view']=='cargos')
 			{include_once dir."/cargos_admin.php";}
+		elseif($_GET['view']=='drivers')
+			{include_once dir."/drivers_admin.php";}
 		$total_pages=total_rows($view_list);
 		if($total_pages>1)
 			{	echo "Страницы<br>";

@@ -19,7 +19,6 @@
 			{
 				$result=mysqli_query($link_id, "SELECT transport_city, transport_to_city, transport_type, capacity, created_at, volume FROM transports WHERE DATE(transport_till_date) >= DATE(NOW()) AND  `order_status`=1 ORDER BY transport_till_date DESC LIMIT $page_site");
 				return $result;
-				
 			}
 			else
 			{

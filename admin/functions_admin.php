@@ -38,7 +38,7 @@
 				$my_order="ORDER BY ".$_GET['order_by']." ".$up_down;
 			}
 			else {
-				$my_order=''; 
+				$my_order='ORDER BY `id` DESC'; 
 			}
 	}
 /*-список транспорта в админке-*/
@@ -68,6 +68,23 @@
 			if($link_id=db_connect ())
 		{
 				$result=mysqli_query($link_id, "SELECT id, ship_from_date,ship_till_date, ship_city, ship_to_city,  description, transport_type, company_name, phone, order_status FROM cargos $my_order LIMIT $page, $page_admin");
+				return $result;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+/*-список водителей в админке-*/
+	function drivers_list_admin($page)
+		{
+			global $page_admin;
+			global $up_down;
+			global $my_order;
+			$page=$page*$page_admin;			
+			if($link_id=db_connect ())
+		{
+				$result=mysqli_query($link_id, "SELECT * FROM drivers $my_order LIMIT $page, $page_admin");
 				return $result;
 			}
 			else
@@ -107,6 +124,19 @@
 			if($link_id=db_connect ())
 			{
 				$result=mysqli_query($link_id, "SELECT * FROM cargos WHERE id=$id");
+				return $result;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+/*-чтение водителей для редактирования-*/
+	function driver_list_read($id)
+		{
+			if($link_id=db_connect ())
+			{
+				$result=mysqli_query($link_id, "SELECT * FROM `drivers` WHERE id=$id");
 				return $result;
 			}
 			else
@@ -205,6 +235,25 @@
 				return $result_querry;
 				}
 	}
+/*-сохранение редактирования груза-*/
+	function driver_save_edit(){
+		$query_data='';
+		$driver_array=array('id', 
+									'name',
+									'phone',
+									'location',
+									'details');
+		if($link_id=db_connect ())
+			{
+				foreach($driver_array as $array_value)
+					{
+						$query_data.='`'.$array_value.'`=\''.mysqli_real_escape_string($link_id, $_POST[$array_value]).'\', ';
+					}
+				$query_data=rtrim($query_data,", ");
+				$result_querry=mysqli_query($link_id, "UPDATE  `drivers` SET $query_data WHERE id='$_POST[id]'");
+				return $result_querry;
+			}
+	}
 /*-удаление из бд-*/	
 	function delete_row($id, $table_name)
 		{	
@@ -215,7 +264,7 @@
 				}
 		}
 /*****************************/	
-function transport_new()
+	function transport_new()
 		{	
 			$query_fields='';
 			$query_data='';
@@ -304,6 +353,37 @@ function transport_new()
 					$query_fields.='`created_at`, `updated_at`';
 					$query_data.="'$created', '$created'";
 					$querry_result=mysqli_query($link_id, "INSERT INTO `cargos` ($query_fields) VALUES ($query_data)");
+					return $querry_result;
+				}
+				else
+				{
+				//echo mysqli_error($link_id);/**********ERROR************/
+					return '0';
+				}
+		}
+/*********************/
+	function driver_new()
+		{
+			$query_fields='';
+			$query_data='';
+			$driver_array=array('name',
+												'phone',
+												'location',
+												'details');
+			if($link_id=db_connect ())
+				{
+					foreach($driver_array as $array_value)
+						{
+							if (!empty($_POST[$array_value]))
+								{
+									$query_fields.='`'.$array_value.'`, ';
+									$temp_data=mysqli_real_escape_string($link_id, $_POST[$array_value]);
+									$query_data.="'$temp_data', ";
+								}
+						}
+					$query_fields=trim($query_fields,", ");
+					$query_data=trim($query_data,", ");
+					$querry_result=mysqli_query($link_id, "INSERT INTO `drivers` ($query_fields) VALUES ($query_data)");
 					return $querry_result;
 				}
 				else

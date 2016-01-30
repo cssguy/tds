@@ -17,11 +17,12 @@
 <header>
 <a href="index.php" class="logo">TDS</a>
 <ul class="nav">
-<li><a href="index.php?view=drivers">Пользователи</a></li>
+<li><a href="index.php?view=drivers">Водители</a></li>
 <li><a href="index.php?view=transports">Транспорт</a></li>
 <li><a href="index.php?view=cargos">Груз</a></li>
-		<li><a href="transport_new.php">Добавить транспорт</a></li>
-		<li><a href="cargo_new.php">Добавить груз</a></li>
-		<li><a href="index.php?do=logout">Выход</a></li>
+<li><a href="drivers_new.php">Добавить водителя</a></li>
+<li><a href="transport_new.php">Добавить транспорт</a></li>
+<li><a href="cargo_new.php">Добавить груз</a></li>
+<li><a href="index.php?do=logout">Выход</a></li>
 </ul>
 </header>

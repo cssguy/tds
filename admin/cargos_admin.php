@@ -50,7 +50,7 @@
 											else 
 											{echo"Ожидает";}
 										echo"</td><td>",
-										"<a href=\"edit_cargos.php?page=",($page+1),$query_string,"&id=",$query_data['id'],"\">Редактировать</a> ";
+										"<a href=\"edit_$view_list.php?page=",($page+1),$query_string,"&id=",$query_data['id'],"\">Редактировать</a> ";
 										echo "<a class=\"remove\" href=\"index.php?page=",($page+1),$query_string,"&remove=",$query_data['id'],"\">Удалить</a>";
 									}
 								}
