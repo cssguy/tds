@@ -24,7 +24,7 @@
     	<?php
     		foreach($transport_type_option as $value)
     		{
-    			echo "<option value=$value>$value</option>";
+    			echo "<option value=\"$value\">$value</option>";
     		}
     	?>
     </select></div>
@@ -37,7 +37,7 @@
     	<?php
     		foreach($payment_type_option as $value)
     		{
-    			echo "<option value=$value>$value</option>";
+    			echo "<option value=\"$value\">$value</option>";
     		}
     	?>
     	</select></div>
@@ -54,7 +54,7 @@
     	<?php
     		foreach($company_type_option as $value)
     		{
-    			echo "<option value=$value>$value</option>";
+    			echo "<option value=\"$value\">$value</option>";
     		}
     	?>
     	</select></div>
@@ -63,8 +63,6 @@
         <input name="commit" type="submit" value="Отправить заявку">
       </div>
     </form>
-
-
 <?php
 		if(isset($_POST['commit']))
 		{
@@ -81,8 +79,6 @@
 				<button type="button" class="ok" data-dismiss="alert" aria-hidden="true">OK</button>
 				</div>';
 			}
-			//$error=transport_new();
-			//echo $error;
 		}
 ?>
 

@@ -30,7 +30,7 @@
         	<?php
         		foreach($transport_type_option as $value)
         		{
-        			echo "<option value=$value>$value</option>";
+        			echo "<option value=\"$value\">$value</option>";
         		}
         	?>
           
@@ -46,7 +46,7 @@
   	<?php
   		foreach($payment_type_option as $value)
   		{
-  			echo "<option value=$value>$value</option>";
+  			echo "<option value=\"$value\">$value</option>";
   		}
   	?>
   	</select></div>
@@ -63,7 +63,7 @@
   	<?php
   		foreach($company_type_option as $value)
   		{
-  			echo "<option value=$value>$value</option>";
+  			echo "<option value=\"$value\">$value</option>";
   		}
   	?>
   	</select></div>
