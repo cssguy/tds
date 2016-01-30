@@ -44,21 +44,30 @@
 	function transport_new()
 		{	global $from_mail;
 			global $to_mail;
+			global $home_url;
 			$query_fields='';
 			$query_data='';
-			$transport_array=array('transport_from_date',
-									'transport_till_date',
-									'transport_city',
-									'transport_to_city',
-									'transport_type',
-									'capacity',
-									'volume',
-									'payment_type',
-									'payment_amount',
-									'phone',
-									'email',
-									'company_name',
-									'company_type');
+			$headers= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-type: text/html; charset=utf-8\r\n";
+			$headers .= "From:$from_mail";
+			$message='<html>
+									<head>
+										<title>Поступила новая заявка свободного транспорта.</title>
+									</head>
+									<body><b>Поступила новая заявка свободного транспорта.</b><br><br>';
+			$transport_array=array('transport_from_date'=>'транспорт свободен с',
+														'transport_till_date'=>'транспорт свободен по',
+														'transport_city'=>'город нахождения ',
+														'transport_to_city'=>'город назначения ',
+														'transport_type'=>'тип транспорта',
+									'capacity'=>'грузоподъемность',
+									'volume'=>'объем груза',
+									'payment_type'=>'тип оплаты',
+									'payment_amount'=>'сумма оплаты',
+									'phone'=>'номер телефона',
+									'email'=>'email',
+									'company_name'=>'компания или ФИО',
+									'company_type'=>'специфика деятельности');
 			if(empty($_POST['transport_from_date']))
 				{$_POST['transport_from_date']=date('Y-m-d');}
 			else{$_POST['transport_from_date']=date('Y-m-d', strtotime($_POST['transport_from_date']));}
@@ -70,31 +79,25 @@
 			$created=date('Y-m-d H:i:s');
 			if($link_id=db_connect ())
 				{
-					foreach($transport_array as $array_value)
-						{//echo $array_value," --post-> ",$_POST[$array_value];
-							//echo '<br>';
-							if (!empty($_POST[$array_value]))
+					foreach($transport_array as $key=>$array_value)
+						{
+							if (!empty($_POST[$key]))
 								{
-									$query_fields.='`'.$array_value.'`, ';
-									$temp_data=mysqli_real_escape_string($link_id, $_POST[$array_value]);
+									$query_fields.='`'.$key.'`, ';
+									$temp_data=mysqli_real_escape_string($link_id, $_POST[$key]);
 									$query_data.="'$temp_data', ";
-									//echo $array_value,"  --!empty_post-",$_POST[$array_value];
-									//echo '<br>-------------------------<br>';
-									//echo '$temp_data='.$temp_data;
-									//echo '<br>-------------------------<br>';
+									$message.="<b>$array_value</b> : $temp_data<br>";
 								}
 						}
 					$query_fields.='`created_at`, `updated_at`';
 					$query_data.="'".$created."', '".$created."'";
-					//echo $query_fields;
-					//echo '<br>';
-					//echo '<br>';
-					//echo $query_data;
-					//echo '<br>';
+					$message.="<br><b>Дата создания заявки</b> : $created<br><b><a href=\"$home_url/admin/index.php?view=transports\">Перейти на сайт.</a></b><br></body></html>";
 					$querry_result=mysqli_query($link_id, "INSERT INTO `transports` ($query_fields) VALUES ($query_data)");
 					//echo mysqli_error($link_id);/**********ERROR************/
-					mail($to_mail, "Поступила новая заявка свободного транспорта", "Поступила новая заявка свободного транспорта.", "From:$from_mail");
-					return $querry_result;
+					if($querry_result){
+						mail($to_mail, "Поступила новая заявка свободного транспорта", $message, $headers);
+						return $querry_result;
+					}
 				}
 				else
 				{
