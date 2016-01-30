@@ -86,7 +86,7 @@
 									$query_fields.='`'.$key.'`, ';
 									$temp_data=mysqli_real_escape_string($link_id, $_POST[$key]);
 									$query_data.="'$temp_data', ";
-									$message.="<b>$array_value</b> : $temp_data<br>";
+									$message.="<b>$array_value</b> : $temp_data<br>\r\n";
 								}
 						}
 					$query_fields.='`created_at`, `updated_at`';
